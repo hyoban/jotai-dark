@@ -10,6 +10,7 @@ isSystemDarkAtom.onMount = (set) => {
   const update = () => {
     set(matcher.matches)
   }
+  update()
   matcher.addEventListener("change", update)
   return () => {
     matcher.removeEventListener("change", update)
