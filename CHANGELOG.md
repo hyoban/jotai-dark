@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.0.2...main
+
+[compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.2...main)
+
+### 🚀 Enhancements
+
+- Add ThemeProvider ([7d2f06b](https://github.com/hyoban/jotai-dark/commit/7d2f06b))
+
+### ❤️ Contributors
+
+- Stephen Zhou ([@hyoban](http://github.com/hyoban))
+
 ## v0.0.1...main
 
 [compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.1...main)
