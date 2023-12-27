@@ -75,3 +75,5 @@ export function useDark(storageKey = "use-dark") {
   useAtom(toggleDarkEffect)
   return { isDark, toggleDark }
 }
+
+export { ThemeProvider } from "./theme-provider"

@@ -9,6 +9,53 @@
 
 useDark function for React with Jotai
 
+## Usage
+
+`useDark`
+
+```tsx
+import { useDark } from "jotai-dark"
+
+const { isDark, toggleDark } = useDark()
+```
+
+`ThemeProvider`
+
+```tsx
+import { ThemeProvider } from "jotai-dark"
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html suppressHydrationWarning>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+## Snippets
+
+Sync theme for `index.html`
+
+```html
+<script>
+  !(function () {
+    var e =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches,
+      t = localStorage.getItem("use-dark") || "system"
+    ;('"dark"' === t || (e && '"light"' !== t)) &&
+      document.documentElement.classList.toggle("dark", !0)
+  })()
+</script>
+```
+
 ## License
 
 [MIT](./LICENSE) License © 2023-PRESENT [Stephen Zhou](https://github.com/hyoban)
