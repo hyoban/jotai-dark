@@ -62,6 +62,12 @@ Sync theme for `index.html`
 </script>
 ```
 
+## See also
+
+- [jotai](https://github.com/pmndrs/jotai)
+- [jotai-effect](https://github.com/jotaijs/jotai-effect)
+- [next-themes](https://github.com/pacocoursey/next-themes)
+
 ## License
 
 [MIT](./LICENSE) License © 2023-PRESENT [Stephen Zhou](https://github.com/hyoban)
