@@ -1,7 +1,7 @@
 {
   "name": "jotai-dark",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@8.13.1",
   "description": "useDark function for React with Jotai",
   "author": "Stephen Zhou <hi@hyoban.cc>",

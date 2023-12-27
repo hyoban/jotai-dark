@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.0.1...main
+
+[compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.1...main)
+
+### 🏡 Chore
+
+- Rename to jotai-dark ([859c58d](https://github.com/hyoban/jotai-dark/commit/859c58d))
+
+### ❤️ Contributors
+
+- Stephen Zhou ([@hyoban](http://github.com/hyoban))
+
 ## ...main
 
 ### 🚀 Enhancements
