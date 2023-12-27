@@ -1,5 +1,22 @@
 # Changelog
 
+## v0.0.3...main
+
+[compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.3...main)
+
+### 🩹 Fixes
+
+- Initial value for isSystemDarkAtom ([e44bd33](https://github.com/hyoban/jotai-dark/commit/e44bd33))
+
+### 📖 Documentation
+
+- Add install guide ([2a21ab9](https://github.com/hyoban/jotai-dark/commit/2a21ab9))
+- Add see also ([2f84712](https://github.com/hyoban/jotai-dark/commit/2f84712))
+
+### ❤️ Contributors
+
+- Stephen Zhou ([@hyoban](http://github.com/hyoban))
+
 ## v0.0.2...main
 
 [compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.2...main)
