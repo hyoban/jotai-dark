@@ -39,6 +39,7 @@ export default [
 
       ...unicorn.configs.recommended.rules,
       "unicorn/prevent-abbreviations": "off",
+      "unicorn/no-null": "off",
 
       "no-console": ["warn", { allow: ["warn", "error"] }],
     },
