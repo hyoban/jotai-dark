@@ -1,17 +1,17 @@
 {
-  "name": "pkg-placeholder",
+  "name": "kurai",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@8.13.1",
-  "description": "_description_",
+  "description": "useDark function for React with Jotai",
   "author": "Stephen Zhou <hi@hyoban.cc>",
   "license": "MIT",
-  "homepage": "https://github.com/hyoban/pkg-placeholder#readme",
+  "homepage": "https://github.com/hyoban/kurai#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hyoban/pkg-placeholder.git"
+    "url": "git+https://github.com/hyoban/kurai.git"
   },
-  "bugs": "https://github.com/hyoban/pkg-placeholder/issues",
+  "bugs": "https://github.com/hyoban/kurai/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
