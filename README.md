@@ -9,6 +9,12 @@
 
 useDark function for React with Jotai
 
+## Install
+
+```bash
+ni jotai jotai-effect jotai-dark
+```
+
 ## Usage
 
 `useDark`
