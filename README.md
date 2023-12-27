@@ -1,4 +1,4 @@
-# kurai
+# jotai-dark
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -17,13 +17,13 @@ useDark function for React with Jotai
 
 [code-style-src]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat
 [code-style-href]: https://github.com/prettier/prettier
-[npm-version-src]: https://img.shields.io/npm/v/kurai?style=flat&colorA=080f12&colorB=1fa669
-[npm-version-href]: https://npmjs.com/package/kurai
-[npm-downloads-src]: https://img.shields.io/npm/dm/kurai?style=flat&colorA=080f12&colorB=1fa669
-[npm-downloads-href]: https://npmjs.com/package/kurai
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/kurai?style=flat&colorA=080f12&colorB=1fa669&label=minzip
-[bundle-href]: https://bundlephobia.com/result?p=kurai
-[license-src]: https://img.shields.io/github/license/hyoban/kurai.svg?style=flat&colorA=080f12&colorB=1fa669
-[license-href]: https://github.com/hyoban/kurai/blob/main/LICENSE
+[npm-version-src]: https://img.shields.io/npm/v/jotai-dark?style=flat&colorA=080f12&colorB=1fa669
+[npm-version-href]: https://npmjs.com/package/jotai-dark
+[npm-downloads-src]: https://img.shields.io/npm/dm/jotai-dark?style=flat&colorA=080f12&colorB=1fa669
+[npm-downloads-href]: https://npmjs.com/package/jotai-dark
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/jotai-dark?style=flat&colorA=080f12&colorB=1fa669&label=minzip
+[bundle-href]: https://bundlephobia.com/result?p=jotai-dark
+[license-src]: https://img.shields.io/github/license/hyoban/jotai-dark.svg?style=flat&colorA=080f12&colorB=1fa669
+[license-href]: https://github.com/hyoban/jotai-dark/blob/main/LICENSE
 [jsdocs-src]: https://img.shields.io/badge/jsdocs-reference-080f12?style=flat&colorA=080f12&colorB=1fa669
-[jsdocs-href]: https://www.jsdocs.io/package/kurai
+[jsdocs-href]: https://www.jsdocs.io/package/jotai-dark

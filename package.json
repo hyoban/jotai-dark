@@ -1,17 +1,17 @@
 {
-  "name": "kurai",
+  "name": "jotai-dark",
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@8.13.1",
   "description": "useDark function for React with Jotai",
   "author": "Stephen Zhou <hi@hyoban.cc>",
   "license": "MIT",
-  "homepage": "https://github.com/hyoban/kurai#readme",
+  "homepage": "https://github.com/hyoban/jotai-dark#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hyoban/kurai.git"
+    "url": "git+https://github.com/hyoban/jotai-dark.git"
   },
-  "bugs": "https://github.com/hyoban/kurai/issues",
+  "bugs": "https://github.com/hyoban/jotai-dark/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
