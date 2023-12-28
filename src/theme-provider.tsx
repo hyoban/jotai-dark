@@ -1,4 +1,10 @@
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
+export function ThemeProvider({
+  children,
+  storageKey = "use-dark",
+}: {
+  children: React.ReactNode
+  storageKey?: string
+}) {
   return (
     <>
       <script
@@ -8,7 +14,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
               var e =
                   window.matchMedia &&
                   window.matchMedia("(prefers-color-scheme: dark)").matches,
-                t = localStorage.getItem("use-dark") || "system";
+                t = localStorage.getItem("${storageKey}") || "system";
               ('"dark"' === t || (e && '"light"' !== t)) &&
                 document.documentElement.classList.toggle("dark", !0);
             })();`,
