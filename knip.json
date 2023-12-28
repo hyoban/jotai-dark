@@ -4,5 +4,5 @@
   "project": ["**/*.ts", "**/*.tsx"],
   "ignore": ["tsup.config.ts"],
   "ignoreBinaries": ["changelogithub"],
-  "ignoreDependencies": ["react-dom"]
+  "ignoreDependencies": ["react-dom", "@iconify-json/lucide"]
 }

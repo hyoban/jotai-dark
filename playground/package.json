@@ -18,6 +18,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@egoist/tailwindcss-icons": "^1.7.1",
+    "@iconify-json/lucide": "^1.1.149",
     "@types/node": "^18.17.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",

@@ -1,3 +1,4 @@
+import { iconsPlugin } from "@egoist/tailwindcss-icons"
 import { type Config } from "tailwindcss"
 import { fontFamily } from "tailwindcss/defaultTheme"
 
@@ -11,5 +12,9 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    iconsPlugin({
+      scale: 1.5,
+    }),
+  ],
 } satisfies Config
