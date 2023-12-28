@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.0.4...main
+
+[compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.4...main)
+
+### 🩹 Fixes
+
+- StorageKey for ThemeProvider ([9964c30](https://github.com/hyoban/jotai-dark/commit/9964c30))
+
+### 🏡 Chore
+
+- Init playground ([ea7f764](https://github.com/hyoban/jotai-dark/commit/ea7f764))
+- Improve demo ([9d194fe](https://github.com/hyoban/jotai-dark/commit/9d194fe))
+
+### ✅ Tests
+
+- Add playwright test ([68871fb](https://github.com/hyoban/jotai-dark/commit/68871fb))
+
+### 🤖 CI
+
+- Remove ci for test ([017f763](https://github.com/hyoban/jotai-dark/commit/017f763))
+
+### ❤️ Contributors
+
+- Stephen Zhou ([@hyoban](http://github.com/hyoban))
+
 ## v0.0.3...main
 
 [compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.3...main)
