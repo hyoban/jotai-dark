@@ -9,3 +9,7 @@ lib-cov
 logs
 node_modules
 temp
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

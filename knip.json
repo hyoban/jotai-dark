@@ -1,7 +1,8 @@
 {
   "$schema": "https://unpkg.com/knip@3/schema.json",
-  "entry": ["src/index.ts", "src/index.test.ts"],
-  "project": ["**/*.ts"],
+  "entry": ["src/index.ts", "src/index.test.tsx"],
+  "project": ["**/*.ts", "**/*.tsx"],
   "ignore": ["tsup.config.ts"],
-  "ignoreBinaries": ["changelogithub"]
+  "ignoreBinaries": ["changelogithub"],
+  "ignoreDependencies": ["react-dom"]
 }
