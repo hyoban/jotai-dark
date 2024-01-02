@@ -97,3 +97,12 @@ test("should be synced back to system after system appearance change", async ({
   await page.waitForTimeout(100)
   expect(await component.textContent()).toBe("Light")
 })
+
+test.describe("with browser in dark mode", () => {
+  test.use({ colorScheme: "dark" })
+
+  test("should be dark", async ({ mount }) => {
+    const component = await mount(<AppearanceSwitch />)
+    expect(await component.textContent()).toBe("Dark")
+  })
+})
