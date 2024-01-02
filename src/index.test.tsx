@@ -29,11 +29,17 @@ test("should be dark after clicking on the switch", async ({ mount, page }) => {
   await component.click()
   await page.waitForTimeout(100)
 
+  expect(
+    await page.evaluate(
+      () => matchMedia("(prefers-color-scheme: dark)").matches,
+    ),
+  ).toBe(false)
   expect(await component.textContent()).toBe("Dark")
-  const classListContainDark = await page.evaluate(() =>
-    window.document.documentElement.classList.contains("dark"),
-  )
-  expect(classListContainDark).toBe(true)
+  expect(
+    await page.evaluate(() =>
+      window.document.documentElement.classList.contains("dark"),
+    ),
+  ).toBe(true)
 })
 
 test("should keep user preference after browser refresh", async ({
