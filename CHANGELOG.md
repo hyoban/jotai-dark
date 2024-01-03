@@ -1,5 +1,26 @@
 # Changelog
 
+## v0.0.6...main
+
+[compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.6...main)
+
+### 💅 Refactors
+
+- ⚠️ Only export atom ([e66b15f](https://github.com/hyoban/jotai-dark/commit/e66b15f))
+
+### 📖 Documentation
+
+- Update description ([2ca364c](https://github.com/hyoban/jotai-dark/commit/2ca364c))
+- Update usage ([2a0e2e0](https://github.com/hyoban/jotai-dark/commit/2a0e2e0))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️ Only export atom ([e66b15f](https://github.com/hyoban/jotai-dark/commit/e66b15f))
+
+### ❤️ Contributors
+
+- Stephen Zhou ([@hyoban](http://github.com/hyoban))
+
 ## v0.0.5...main
 
 [compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.5...main)
