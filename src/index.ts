@@ -1,46 +1,41 @@
-import { atom, useAtom, useAtomValue, useSetAtom } from "jotai"
 import { atomEffect } from "jotai-effect"
-import { atomWithStorage } from "jotai/utils"
+import { useAtomValue, useSetAtom } from "jotai/react"
+import { atom } from "jotai/vanilla"
+import { atomWithStorage } from "jotai/vanilla/utils"
 import { useMemo } from "react"
 
-const isSystemDarkAtom = atom<boolean | null>(null)
-isSystemDarkAtom.onMount = (set) => {
-  if (typeof window === "undefined") return
-  const matcher = window.matchMedia("(prefers-color-scheme: dark)")
-  const update = () => {
-    set(matcher.matches)
+export function atomSystemDark() {
+  const isSystemDarkAtom = atom<boolean | null>(null)
+  isSystemDarkAtom.onMount = (set) => {
+    if (typeof window === "undefined") return
+    const matcher = window.matchMedia("(prefers-color-scheme: dark)")
+    const update = () => {
+      set(matcher.matches)
+    }
+    update()
+    matcher.addEventListener("change", update)
+    return () => {
+      matcher.removeEventListener("change", update)
+    }
   }
-  update()
-  matcher.addEventListener("change", update)
-  return () => {
-    matcher.removeEventListener("change", update)
-  }
+  return isSystemDarkAtom
 }
 
 const themeOptions = ["system", "light", "dark"] as const
 export type Theme = (typeof themeOptions)[number]
 
 function isDarkMode(setting?: Theme | null, isSystemDark?: boolean | null) {
-  return setting === "dark" || (isSystemDark && setting !== "light")
+  return setting === "dark" || (!!isSystemDark && setting !== "light")
 }
 
-function createIsDarkAtom(storageKey: string) {
+export function atomDark(storageKey = "use-dark") {
+  const isSystemDarkAtom = atomSystemDark()
   const themeAtom = atomWithStorage<Theme>(storageKey, "system")
 
   const isDarkAtom = atom((get) => {
     const theme = get(themeAtom)
     const isSystemDark = get(isSystemDarkAtom)
     return isDarkMode(theme, isSystemDark)
-  })
-
-  const toggleDarkAtom = atom(null, (get, set) => {
-    const theme = get(themeAtom)
-    const isSystemDark = get(isSystemDarkAtom)
-    if (theme === "system") {
-      set(themeAtom, isSystemDark ? "light" : "dark")
-    } else {
-      set(themeAtom, "system")
-    }
   })
 
   const toggleDarkEffect = atomEffect((get, set) => {
@@ -61,19 +56,33 @@ function createIsDarkAtom(storageKey: string) {
     }
   })
 
-  return { isDarkAtom, toggleDarkAtom, toggleDarkEffect }
+  const anAtom = atom(
+    (get) => {
+      get(toggleDarkEffect)
+      return get(isDarkAtom)
+    },
+    (get, set) => {
+      const theme = get(themeAtom)
+      const isSystemDark = get(isSystemDarkAtom)
+      if (theme === "system") {
+        set(themeAtom, isSystemDark ? "light" : "dark")
+      } else {
+        set(themeAtom, "system")
+      }
+    },
+  )
+  return anAtom
 }
 
-export const useSystemDark = () => useAtomValue(isSystemDarkAtom)
+export function useSystemDark() {
+  const globalSystemDarkAtom = useMemo(() => atomSystemDark(), [])
+  return useAtomValue(globalSystemDarkAtom)
+}
 
 export function useDark(storageKey = "use-dark") {
-  const { isDarkAtom, toggleDarkAtom, toggleDarkEffect } = useMemo(
-    () => createIsDarkAtom(storageKey),
-    [storageKey],
-  )
-  const isDark = useAtomValue(isDarkAtom)
-  const toggleDark = useSetAtom(toggleDarkAtom)
-  useAtom(toggleDarkEffect)
+  const globalIsDarkAtom = useMemo(() => atomDark(storageKey), [storageKey])
+  const isDark = useAtomValue(globalIsDarkAtom)
+  const toggleDark = useSetAtom(globalIsDarkAtom) as () => void
   return { isDark, toggleDark }
 }
 
