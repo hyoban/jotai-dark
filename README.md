@@ -20,7 +20,15 @@ ni jotai jotai-effect jotai-dark
 `useDark`
 
 ```tsx
-import { useDark } from "jotai-dark"
+import { atomDark } from "jotai-dark"
+
+const isDarkAtom = atomDark()
+
+function useDark() {
+  const isDark = useAtomValue(isDarkAtom)
+  const toggleDark = useSetAtom(isDarkAtom) as () => void
+  return { isDark, toggleDark }
+}
 
 const { isDark, toggleDark } = useDark()
 ```
