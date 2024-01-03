@@ -8,15 +8,9 @@ importers:
 
   .:
     dependencies:
-      jotai:
-        specifier: ^2.0.0
-        version: 2.6.0(@types/react@18.2.45)(react@18.2.0)
       jotai-effect:
         specifier: ^0.2.3
-        version: 0.2.3(jotai@2.6.0)
-      react:
-        specifier: ^18.0.0
-        version: 18.2.0
+        version: 0.2.3(jotai@2.6.1)
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.1.1
@@ -51,6 +45,9 @@ importers:
       eslint-plugin-unicorn:
         specifier: ^50.0.1
         version: 50.0.1(eslint@8.56.0)
+      jotai:
+        specifier: ^2.6.1
+        version: 2.6.1(@types/react@18.2.45)(react@18.2.0)
       knip:
         specifier: ^3.8.4
         version: 3.8.4(@types/node@20.10.5)(typescript@5.3.3)
@@ -60,6 +57,9 @@ importers:
       publint:
         specifier: ^0.2.7
         version: 0.2.7
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
@@ -3479,6 +3479,14 @@ packages:
       jotai: 2.6.0(@types/react@18.2.45)(react@18.2.0)
     dev: false
 
+  /jotai-effect@0.2.3(jotai@2.6.1):
+    resolution: {integrity: sha512-Ecs40W4Y+SI1EqbvPdoLDvbyic5eMyD5ifJIQrrr+hWz1GEjmijVWyKw6TzmYzO2+++CkYPF+fYsWzsWsR0AAQ==}
+    peerDependencies:
+      jotai: '>=2.4.3'
+    dependencies:
+      jotai: 2.6.1(@types/react@18.2.45)(react@18.2.0)
+    dev: false
+
   /jotai@2.6.0(@types/react@18.2.45)(react@18.2.0):
     resolution: {integrity: sha512-Vt6hsc04Km4j03l+Ax+Sc+FVft5cRJhqgxt6GTz6GM2eM3DyX3CdBdzcG0z2FrlZToL1/0OAkqDghIyARWnSuQ==}
     engines: {node: '>=12.20.0'}
@@ -3494,6 +3502,21 @@ packages:
       '@types/react': 18.2.45
       react: 18.2.0
     dev: false
+
+  /jotai@2.6.1(@types/react@18.2.45)(react@18.2.0):
+    resolution: {integrity: sha512-GLQtAnA9iEKRMXnyCjf1azIxfQi5JausX2EI5qSlb59j4i73ZEyV/EXPDEAQj4uQNZYEefi3degv/Pw3+L/Dtg==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=17.0.0'
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      '@types/react': 18.2.45
+      react: 18.2.0
 
   /joycon@3.1.1:
     resolution: {integrity: sha512-34wB/Y7MW7bzjKRjUKTa46I2Z7eV62Rkhva+KkopW7Qvv/OSWBqvkSY7vusOPrNuZcUG3tApvdVgNB8POj3SPw==}

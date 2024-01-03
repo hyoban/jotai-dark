@@ -1,15 +1,19 @@
 import { atomEffect } from "jotai-effect"
-import { useAtomValue, useSetAtom } from "jotai/react"
 import { atom } from "jotai/vanilla"
 import { atomWithStorage } from "jotai/vanilla/utils"
-import { useMemo } from "react"
 
 import { atomSystemDark } from "./atom-system-dark"
 import { disableAnimation, isDarkMode } from "./utils"
 
-import type { Theme } from "./utils"
+import type { Options, Theme } from "./utils"
 
-export function atomDark(storageKey = "use-dark") {
+export function atomDark(options?: Options) {
+  const {
+    storageKey = "use-dark",
+    disableTransition = false,
+    disableTransitionExclude = [],
+  } = options ?? {}
+
   const isSystemDarkAtom = atomSystemDark()
   const themeAtom = atomWithStorage<Theme>(storageKey, "system")
 
@@ -43,7 +47,9 @@ export function atomDark(storageKey = "use-dark") {
       return get(isDarkAtom)
     },
     (get, set) => {
-      const enable = disableAnimation()
+      const enable = disableTransition
+        ? disableAnimation(disableTransitionExclude)
+        : null
       const theme = get(themeAtom)
       const isSystemDark = get(isSystemDarkAtom)
       if (theme === "system") {
@@ -51,15 +57,8 @@ export function atomDark(storageKey = "use-dark") {
       } else {
         set(themeAtom, "system")
       }
-      enable()
+      enable?.()
     },
   )
   return anAtom
-}
-
-export function useDark(storageKey = "use-dark") {
-  const globalIsDarkAtom = useMemo(() => atomDark(storageKey), [storageKey])
-  const isDark = useAtomValue(globalIsDarkAtom)
-  const toggleDark = useSetAtom(globalIsDarkAtom) as () => void
-  return { isDark, toggleDark }
 }

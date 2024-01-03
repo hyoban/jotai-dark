@@ -1,6 +1,4 @@
-import { useAtomValue } from "jotai/react"
 import { atom } from "jotai/vanilla"
-import { useMemo } from "react"
 
 export function atomSystemDark() {
   const isSystemDarkAtom = atom<boolean | null>(null)
@@ -17,9 +15,4 @@ export function atomSystemDark() {
     }
   }
   return isSystemDarkAtom
-}
-
-export function useSystemDark() {
-  const globalSystemDarkAtom = useMemo(() => atomSystemDark(), [])
-  return useAtomValue(globalSystemDarkAtom)
 }
