@@ -5,7 +5,7 @@ import { atomWithStorage } from "jotai/vanilla/utils"
 import { useMemo } from "react"
 
 import { atomSystemDark } from "./atom-system-dark"
-import { isDarkMode } from "./utils"
+import { disableAnimation, isDarkMode } from "./utils"
 
 import type { Theme } from "./utils"
 
@@ -43,6 +43,7 @@ export function atomDark(storageKey = "use-dark") {
       return get(isDarkAtom)
     },
     (get, set) => {
+      const enable = disableAnimation()
       const theme = get(themeAtom)
       const isSystemDark = get(isSystemDarkAtom)
       if (theme === "system") {
@@ -50,6 +51,7 @@ export function atomDark(storageKey = "use-dark") {
       } else {
         set(themeAtom, "system")
       }
+      enable()
     },
   )
   return anAtom
