@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.6",
   "packageManager": "pnpm@8.13.1",
-  "description": "useDark function for React with Jotai",
+  "description": "A Jōtai utility package for toggling dark mode",
   "author": "Stephen Zhou <hi@hyoban.cc>",
   "license": "MIT",
   "homepage": "https://github.com/hyoban/jotai-dark#readme",

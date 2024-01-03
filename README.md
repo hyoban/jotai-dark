@@ -7,7 +7,7 @@
 [![License][license-src]][license-href]
 [![code style: prettier][code-style-src]][code-style-href]
 
-useDark function for React with Jotai
+A Jōtai utility package for toggling dark mode
 
 ## Install
 
