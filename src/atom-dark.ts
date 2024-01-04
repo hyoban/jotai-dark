@@ -15,24 +15,24 @@ export function atomDark(options?: Options) {
   } = options ?? {}
 
   const isSystemDarkAtom = atomSystemDark()
+  if (import.meta.env?.MODE !== "production") {
+    isSystemDarkAtom.debugPrivate = true
+  }
   const themeAtom = atomWithStorage<Theme>(storageKey, "system")
-
-  const isDarkAtom = atom((get) => {
-    const theme = get(themeAtom)
-    const isSystemDark = get(isSystemDarkAtom)
-    return isDarkMode(theme, isSystemDark)
-  })
+  if (import.meta.env?.MODE !== "production") {
+    themeAtom.debugPrivate = true
+  }
 
   const toggleDarkEffect = atomEffect((get, set) => {
-    const isDark = get(isDarkAtom)
+    const theme = get(themeAtom)
+    const isSystemDark = get(isSystemDarkAtom)
+    const isDark = isDarkMode(theme, isSystemDark)
     if (isDark) {
       document.documentElement.classList.toggle("dark", true)
     } else {
       document.documentElement.classList.toggle("dark", false)
     }
 
-    const theme = get(themeAtom)
-    const isSystemDark = get(isSystemDarkAtom)
     if (
       (theme === "dark" && isSystemDark) ||
       (theme === "light" && !isSystemDark)
@@ -40,11 +40,16 @@ export function atomDark(options?: Options) {
       set(themeAtom, "system")
     }
   })
+  if (import.meta.env?.MODE !== "production") {
+    toggleDarkEffect.debugPrivate = true
+  }
 
   const anAtom = atom(
     (get) => {
       get(toggleDarkEffect)
-      return get(isDarkAtom)
+      const theme = get(themeAtom)
+      const isSystemDark = get(isSystemDarkAtom)
+      return isDarkMode(theme, isSystemDark)
     },
     (get, set) => {
       const enable = disableTransition
@@ -60,5 +65,8 @@ export function atomDark(options?: Options) {
       enable?.()
     },
   )
+  if (import.meta.env?.MODE !== "production") {
+    anAtom.debugPrivate = true
+  }
   return anAtom
 }

@@ -1,11 +1,8 @@
 import { useAtomValue, useSetAtom } from "jotai"
 
-import { atomDark } from "."
+import { atomDark } from "./atom-dark"
 
-const isDarkAtom = atomDark({
-  disableTransition: true,
-  disableTransitionExclude: [".i-lucide-sun", ".i-lucide-moon"],
-})
+const isDarkAtom = atomDark()
 
 function useDark() {
   const isDark = useAtomValue(isDarkAtom)
