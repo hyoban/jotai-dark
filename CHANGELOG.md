@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.2.1...main
+
+[compare changes](https://github.com/hyoban/jotai-dark/compare/v0.2.1...main)
+
+### 🩹 Fixes
+
+- Correct debugPrivate ([2059fe2](https://github.com/hyoban/jotai-dark/commit/2059fe2))
+
+### ❤️ Contributors
+
+- Stephen Zhou ([@hyoban](http://github.com/hyoban))
+
 ## v0.2.0...main
 
 [compare changes](https://github.com/hyoban/jotai-dark/compare/v0.2.0...main)
