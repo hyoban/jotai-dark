@@ -63,6 +63,7 @@
     "start": "tsx src/index.ts"
   },
   "peerDependencies": {
+    "jotai": ">=2.5.0",
     "jotai-effect": "^0.2.3"
   },
   "devDependencies": {
