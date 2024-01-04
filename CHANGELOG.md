@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.1.0...main
+
+[compare changes](https://github.com/hyoban/jotai-dark/compare/v0.1.0...main)
+
+### 💅 Refactors
+
+- ⚠️ Remove theme-provider ([bdf6cca](https://github.com/hyoban/jotai-dark/commit/bdf6cca))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️ Remove theme-provider ([bdf6cca](https://github.com/hyoban/jotai-dark/commit/bdf6cca))
+
+### ❤️ Contributors
+
+- Stephen Zhou ([@hyoban](http://github.com/hyoban))
+
 ## v0.0.6...main
 
 [compare changes](https://github.com/hyoban/jotai-dark/compare/v0.0.6...main)
