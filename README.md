@@ -36,7 +36,30 @@ const { isDark, toggleDark } = useDark()
 `ThemeProvider`
 
 ```tsx
-import { ThemeProvider } from "jotai-dark"
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <script
+        id="change-theme"
+        dangerouslySetInnerHTML={{
+          __html: `!(function () {
+              var e =
+                  window.matchMedia &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches,
+                t = localStorage.getItem("use-dark") || '"system"';
+              ('"dark"' === t || (e && '"light"' !== t)) &&
+                document.documentElement.classList.toggle("dark", !0);
+            })();`,
+        }}
+      ></script>
+      {children}
+    </>
+  )
+}
+```
+
+```tsx
+import { ThemeProvider } from "./theme-provider"
 
 export default function RootLayout({
   children,
@@ -63,7 +86,7 @@ Sync theme for `index.html`
     var e =
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches,
-      t = localStorage.getItem("use-dark") || "system"
+      t = localStorage.getItem("use-dark") || '"system"'
     ;('"dark"' === t || (e && '"light"' !== t)) &&
       document.documentElement.classList.toggle("dark", !0)
   })()
