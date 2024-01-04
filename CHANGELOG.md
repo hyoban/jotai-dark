@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.2.2...main
+
+[compare changes](https://github.com/hyoban/jotai-dark/compare/v0.2.2...main)
+
+### 🩹 Fixes
+
+- Correct jotai peerDependencies ([e7daeb6](https://github.com/hyoban/jotai-dark/commit/e7daeb6))
+
+### ❤️ Contributors
+
+- Stephen Zhou ([@hyoban](http://github.com/hyoban))
+
 ## v0.2.1...main
 
 [compare changes](https://github.com/hyoban/jotai-dark/compare/v0.2.1...main)
