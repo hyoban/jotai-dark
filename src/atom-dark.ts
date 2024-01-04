@@ -65,8 +65,5 @@ export function atomDark(options?: Options) {
       enable?.()
     },
   )
-  if (import.meta.env?.MODE !== "production") {
-    anAtom.debugPrivate = true
-  }
   return anAtom
 }
