@@ -12,6 +12,9 @@ export function atomDark(options?: Options) {
     storageKey = "use-dark",
     disableTransition = false,
     disableTransitionExclude = [],
+    applyDarkMode = (isDark: boolean) => {
+      document.documentElement.classList.toggle("dark", isDark)
+    },
   } = options ?? {}
 
   const isSystemDarkAtom = atomSystemDark()
@@ -27,11 +30,7 @@ export function atomDark(options?: Options) {
     const theme = get(themeAtom)
     const isSystemDark = get(isSystemDarkAtom)
     const isDark = isDarkMode(theme, isSystemDark)
-    if (isDark) {
-      document.documentElement.classList.toggle("dark", true)
-    } else {
-      document.documentElement.classList.toggle("dark", false)
-    }
+    applyDarkMode(isDark)
 
     if (
       (theme === "dark" && isSystemDark) ||

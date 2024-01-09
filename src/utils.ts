@@ -53,4 +53,9 @@ export type Options = {
    * @default []
    */
   disableTransitionExclude?: string[]
+
+  /**
+   * @default isDark => document.documentElement.classList.toggle("dark", isDark)
+   */
+  applyDarkMode?: (isDark: boolean) => void
 }
