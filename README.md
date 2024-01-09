@@ -22,16 +22,27 @@ ni jotai jotai-effect jotai-dark
 ```tsx
 import { atomDark } from "jotai-dark"
 
-const isDarkAtom = atomDark()
+const isDarkAtom = atomDark({
+  // all options are optional (default values are shown)
+  storageKey: "use-dark",
+  disableTransition: false,
+  disableTransitionExclude: [],
+  applyDarkMode: (isDark: boolean) => {
+    document.documentElement.classList.toggle("dark", isDark)
+  },
+})
 
 function useDark() {
   const isDark = useAtomValue(isDarkAtom)
   const toggleDark = useSetAtom(isDarkAtom) as () => void
-  return { isDark, toggleDark }
+  const theme = (isDark ? "dark" : "light") as "light" | "dark"
+  return { isDark, toggleDark, theme }
 }
 
-const { isDark, toggleDark } = useDark()
+const { isDark, toggleDark, theme } = useDark()
 ```
+
+## Snippets
 
 `ThemeProvider`
 
@@ -75,8 +86,6 @@ export default function RootLayout({
   )
 }
 ```
-
-## Snippets
 
 Sync theme for `index.html`
 
