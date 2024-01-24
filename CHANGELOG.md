@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.2.3...main
+
+[compare changes](https://github.com/hyoban/jotai-dark/compare/v0.2.3...main)
+
+### 🚀 Enhancements
+
+- Add applyDark option ([a95220a](https://github.com/hyoban/jotai-dark/commit/a95220a))
+
+### 📖 Documentation
+
+- Update readme ([8d30674](https://github.com/hyoban/jotai-dark/commit/8d30674))
+
+### 🏡 Chore
+
+- Update deps ([0caddc6](https://github.com/hyoban/jotai-dark/commit/0caddc6))
+
+### ❤️ Contributors
+
+- Stephen Zhou ([@hyoban](http://github.com/hyoban))
+
 ## v0.2.2...main
 
 [compare changes](https://github.com/hyoban/jotai-dark/compare/v0.2.2...main)
