@@ -33,7 +33,7 @@ const isDarkAtom = atomDark({
 
 ## Snippets
 
-`useDark`
+`use-dark.ts`
 
 ```ts
 import { useAtom } from "jotai"
@@ -54,7 +54,7 @@ export function useDark() {
 }
 ```
 
-`ApperanceSwitch`
+`appearance-switch.tsx`
 
 ```tsx
 "use client"
@@ -74,7 +74,7 @@ export function AppearanceSwitch({ className = "" }: { className?: string }) {
 }
 ```
 
-`ThemeProvider`
+`theme-provider.tsx`
 
 ```tsx
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
@@ -99,6 +99,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 }
 ```
 
+`layout.tsx`
+
 ```tsx
 import { ThemeProvider } from "./theme-provider"
 
@@ -117,7 +119,7 @@ export default function RootLayout({
 }
 ```
 
-Sync theme for `index.html`
+`index.html`
 
 ```html
 <script>
