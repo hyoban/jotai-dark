@@ -10,26 +10,26 @@
     "start": "next start"
   },
   "dependencies": {
-    "jotai": "^2.6.3",
+    "jotai": "^2.6.4",
     "jotai-dark": "workspace:^",
-    "jotai-effect": "^0.3.2",
+    "jotai-effect": "^0.5.0",
     "next": "^14.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@egoist/tailwindcss-icons": "^1.7.2",
-    "@iconify-json/lucide": "^1.1.158",
-    "@types/node": "^20.11.6",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
+    "@egoist/tailwindcss-icons": "^1.7.4",
+    "@iconify-json/lucide": "^1.1.163",
+    "@types/node": "^20.11.17",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
-    "postcss": "^8.4.33",
+    "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   },
   "ct3aMetadata": {
     "initVersion": "7.25.0"
   },
-  "packageManager": "pnpm@8.14.3"
+  "packageManager": "pnpm@8.15.1"
 }
