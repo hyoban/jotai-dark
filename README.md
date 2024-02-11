@@ -17,8 +17,6 @@ ni jotai jotai-effect jotai-dark
 
 ## Usage
 
-`useDark`
-
 ```tsx
 import { atomDark } from "jotai-dark"
 
