@@ -74,36 +74,9 @@ export function AppearanceSwitch({ className = "" }: { className?: string }) {
 }
 ```
 
-`theme-provider.tsx`
-
-```tsx
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <script
-        id="change-theme"
-        dangerouslySetInnerHTML={{
-          __html: `!(function () {
-              var e =
-                  window.matchMedia &&
-                  window.matchMedia("(prefers-color-scheme: dark)").matches,
-                t = localStorage.getItem("use-dark") || '"system"';
-              ('"dark"' === t || (e && '"light"' !== t)) &&
-                document.documentElement.classList.toggle("dark", !0);
-            })();`,
-        }}
-      ></script>
-      {children}
-    </>
-  )
-}
-```
-
 `layout.tsx`
 
 ```tsx
-import { ThemeProvider } from "./theme-provider"
-
 export default function RootLayout({
   children,
 }: {
@@ -112,7 +85,15 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        {
+          // eslint-disable-next-line @eslint-react/dom/no-dangerously-set-innerhtml
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-dark")||'"system"';('"dark"'===t||e&&'"light"'!==t)&&document.documentElement.classList.toggle("dark",!0)}();`,
+            }}
+          ></script>
+        }
+        {children}
       </body>
     </html>
   )
