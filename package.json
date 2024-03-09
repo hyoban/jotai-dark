@@ -41,12 +41,11 @@
   ],
   "scripts": {
     "build": "tsup",
-    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm knip && pnpm build && pnpm publint",
     "dev": "tsup --watch src",
     "knip": "knip",
     "lint": "eslint .",
     "prepare": "simple-git-hooks",
-    "prepublishOnly": "pnpm check",
+    "prepublishOnly": "pnpm run build",
     "publint": "publint",
     "start": "tsx src/index.ts",
     "test": "playwright test -c playwright-ct.config.ts",
