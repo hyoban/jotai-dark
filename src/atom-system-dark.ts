@@ -1,20 +1,19 @@
 import { atom } from 'jotai/vanilla'
 
+import { getSnapshot, subscribe } from './use-system-dark'
+
 export function atomSystemDark() {
   const isSystemDarkAtom = atom<boolean | null>(null)
 
   isSystemDarkAtom.onMount = (set) => {
     if (typeof window === 'undefined')
       return
-    const matcher = window.matchMedia('(prefers-color-scheme: dark)')
+
     const update = () => {
-      set(matcher.matches)
+      set(getSnapshot())
     }
     update()
-    matcher.addEventListener('change', update)
-    return () => {
-      matcher.removeEventListener('change', update)
-    }
+    return subscribe(update)
   }
   return isSystemDarkAtom
 }

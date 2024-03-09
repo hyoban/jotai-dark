@@ -59,3 +59,15 @@ export type Options = {
    */
   applyDarkMode?: (isDark: boolean) => void
 }
+
+export function mergeDefaultOptions(options?: Options): Required<Options> {
+  return {
+    storageKey: 'use-dark',
+    disableTransition: false,
+    disableTransitionExclude: [],
+    applyDarkMode: (isDark) => {
+      document.documentElement.classList.toggle('dark', isDark)
+    },
+    ...options,
+  }
+}
