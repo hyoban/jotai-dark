@@ -9,7 +9,8 @@
     "before:init": [
       "pnpm run lint",
       "pnpm run typecheck",
-      "pnpm run test --run"
+      "pnpm run test",
+      "pnpm run build"
     ]
   }
 }
