@@ -23,6 +23,18 @@
         "default": "./dist/index.cjs"
       },
       "default": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": {
+        "types": "./dist/react/index.d.ts",
+        "default": "./dist/react/index.js"
+      },
+      "require": {
+        "types": "./dist/react/index.d.cts",
+        "default": "./dist/react/index.cjs"
+      },
+      "default": "./dist/react/index.js"
     }
   },
   "main": "./dist/index.cjs",

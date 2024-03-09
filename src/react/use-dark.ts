@@ -1,9 +1,9 @@
 import { useLocalStorage } from 'foxact/use-local-storage'
 import { useEffect, useMemo } from 'react'
 
+import type { Options, Theme } from '../utils'
+import { disableAnimation, isDarkMode, mergeDefaultOptions } from '../utils'
 import { useSystemDark } from './use-system-dark'
-import type { Options, Theme } from './utils'
-import { disableAnimation, isDarkMode, mergeDefaultOptions } from './utils'
 
 export function useDark(options?: Options) {
   const {

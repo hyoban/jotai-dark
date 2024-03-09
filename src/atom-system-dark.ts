@@ -1,6 +1,6 @@
 import { atom } from 'jotai/vanilla'
 
-import { getSnapshot, subscribe } from './use-system-dark'
+import { getSystemDarkSnapshot, subscribeSystemDark } from './utils'
 
 export function atomSystemDark() {
   const isSystemDarkAtom = atom<boolean | null>(null)
@@ -10,10 +10,10 @@ export function atomSystemDark() {
       return
 
     const update = () => {
-      set(getSnapshot())
+      set(getSystemDarkSnapshot())
     }
     update()
-    return subscribe(update)
+    return subscribeSystemDark(update)
   }
   return isSystemDarkAtom
 }

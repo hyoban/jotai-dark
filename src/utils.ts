@@ -71,3 +71,17 @@ export function mergeDefaultOptions(options?: Options): Required<Options> {
     ...options,
   }
 }
+
+const query = '(prefers-color-scheme: dark)'
+
+export function getSystemDarkSnapshot() {
+  return window.matchMedia(query).matches
+}
+
+export function subscribeSystemDark(callback: () => void) {
+  const matcher = window.matchMedia(query)
+  matcher.addEventListener('change', callback)
+  return () => {
+    matcher.removeEventListener('change', callback)
+  }
+}
