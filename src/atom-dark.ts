@@ -1,30 +1,28 @@
-import { atomEffect } from "jotai-effect"
-import { atom } from "jotai/vanilla"
-import { atomWithStorage } from "jotai/vanilla/utils"
+import { atom } from 'jotai/vanilla'
+import { atomWithStorage } from 'jotai/vanilla/utils'
+import { atomEffect } from 'jotai-effect'
 
-import { atomSystemDark } from "./atom-system-dark"
-import { disableAnimation, isDarkMode } from "./utils"
-
-import type { Options, Theme } from "./utils"
+import { atomSystemDark } from './atom-system-dark'
+import type { Options, Theme } from './utils'
+import { disableAnimation, isDarkMode } from './utils'
 
 export function atomDark(options?: Options) {
   const {
-    storageKey = "use-dark",
+    storageKey = 'use-dark',
     disableTransition = false,
     disableTransitionExclude = [],
     applyDarkMode = (isDark: boolean) => {
-      document.documentElement.classList.toggle("dark", isDark)
+      document.documentElement.classList.toggle('dark', isDark)
     },
   } = options ?? {}
 
   const isSystemDarkAtom = atomSystemDark()
-  if (import.meta.env?.MODE !== "production") {
+  if (import.meta.env?.MODE !== 'production')
     isSystemDarkAtom.debugPrivate = true
-  }
-  const themeAtom = atomWithStorage<Theme>(storageKey, "system")
-  if (import.meta.env?.MODE !== "production") {
+
+  const themeAtom = atomWithStorage<Theme>(storageKey, 'system')
+  if (import.meta.env?.MODE !== 'production')
     themeAtom.debugPrivate = true
-  }
 
   const toggleDarkEffect = atomEffect((get, set) => {
     const theme = get(themeAtom)
@@ -33,15 +31,13 @@ export function atomDark(options?: Options) {
     applyDarkMode(isDark)
 
     if (
-      (theme === "dark" && isSystemDark) ||
-      (theme === "light" && !isSystemDark)
-    ) {
-      set(themeAtom, "system")
-    }
+      (theme === 'dark' && isSystemDark)
+      || (theme === 'light' && !isSystemDark)
+    )
+      set(themeAtom, 'system')
   })
-  if (import.meta.env?.MODE !== "production") {
+  if (import.meta.env?.MODE !== 'production')
     toggleDarkEffect.debugPrivate = true
-  }
 
   const anAtom = atom(
     (get) => {
@@ -56,11 +52,11 @@ export function atomDark(options?: Options) {
         : null
       const theme = get(themeAtom)
       const isSystemDark = get(isSystemDarkAtom)
-      if (theme === "system") {
-        set(themeAtom, isSystemDark ? "light" : "dark")
-      } else {
-        set(themeAtom, "system")
-      }
+      if (theme === 'system')
+        set(themeAtom, isSystemDark ? 'light' : 'dark')
+      else
+        set(themeAtom, 'system')
+
       enable?.()
     },
   )

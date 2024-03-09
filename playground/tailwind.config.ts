@@ -1,14 +1,14 @@
-import { iconsPlugin } from "@egoist/tailwindcss-icons"
-import { type Config } from "tailwindcss"
-import { fontFamily } from "tailwindcss/defaultTheme"
+import { iconsPlugin } from '@egoist/tailwindcss-icons'
+import type { Config } from 'tailwindcss'
+import { fontFamily } from 'tailwindcss/defaultTheme'
 
 export default {
-  darkMode: "class",
-  content: ["./src/**/*.tsx"],
+  darkMode: 'class',
+  content: ['./src/**/*.tsx'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ['var(--font-sans)', ...fontFamily.sans],
       },
     },
   },

@@ -9,29 +9,18 @@
     "moduleDetection": "force",
     "isolatedModules": true,
 
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
     /* If NOT transpiling with TypeScript: */
     "moduleResolution": "Bundler",
-    "module": "ESNext",
+    "module": "preserve",
     "noEmit": true,
-    /* If your code doesn't run in the DOM: */
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
 
-    /* Strictness */
-    "verbatimModuleSyntax": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    // disable
-    "exactOptionalPropertyTypes": false,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strict": true,
+    /* If your code runs in the DOM: */
+    "lib": ["es2022", "dom", "dom.iterable"],
 
     "jsx": "react-jsx"
-  },
-  "include": ["src", "playwright"]
+  }
 }

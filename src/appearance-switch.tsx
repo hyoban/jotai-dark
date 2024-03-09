@@ -1,6 +1,6 @@
-import { useAtomValue, useSetAtom } from "jotai"
+import { useAtomValue, useSetAtom } from 'jotai'
 
-import { atomDark } from "./atom-dark"
+import { atomDark } from './atom-dark'
 
 const isDarkAtom = atomDark()
 
@@ -13,5 +13,9 @@ function useDark() {
 export function AppearanceSwitch() {
   const { isDark, toggleDark } = useDark()
 
-  return <button onClick={toggleDark}>{isDark ? "Dark" : "Light"}</button>
+  return (
+    <button onClick={toggleDark} type="button">
+      {isDark ? 'Dark' : 'Light'}
+    </button>
+  )
 }

@@ -18,7 +18,7 @@ ni jotai jotai-effect jotai-dark
 ## Usage
 
 ```tsx
-import { atomDark } from "jotai-dark"
+import { atomDark } from "jotai-dark";
 
 const isDarkAtom = atomDark({
   // all options are optional (default values are shown)
@@ -26,9 +26,9 @@ const isDarkAtom = atomDark({
   disableTransition: false,
   disableTransitionExclude: [],
   applyDarkMode: (isDark: boolean) => {
-    document.documentElement.classList.toggle("dark", isDark)
+    document.documentElement.classList.toggle("dark", isDark);
   },
-})
+});
 ```
 
 ## Snippets
@@ -36,33 +36,33 @@ const isDarkAtom = atomDark({
 `use-dark.ts`
 
 ```ts
-import { useAtom } from "jotai"
-import { atomDark } from "jotai-dark"
+import { useAtom } from "jotai";
+import { atomDark } from "jotai-dark";
 
 const isDarkAtom = atomDark({
   disableTransition: true,
   disableTransitionExclude: [".i-lucide-sun", ".i-lucide-moon"],
-})
+});
 
 export function useDark() {
-  const [isDark, setIsDark] = useAtom(isDarkAtom)
+  const [isDark, setIsDark] = useAtom(isDarkAtom);
   return {
     isDark,
     toggleDark: setIsDark as () => void,
     theme: (isDark ? "dark" : "light") as "dark" | "light",
-  }
+  };
 }
 ```
 
 `appearance-switch.tsx`
 
 ```tsx
-"use client"
+"use client";
 
-import { useDark } from "~/hooks/use-dark"
+import { useDark } from "~/hooks/use-dark";
 
 export function AppearanceSwitch({ className = "" }: { className?: string }) {
-  const { toggleDark } = useDark()
+  const { toggleDark } = useDark();
 
   return (
     <button type="button" onClick={toggleDark} className={"flex " + className}>
@@ -70,7 +70,7 @@ export function AppearanceSwitch({ className = "" }: { className?: string }) {
       <div className="i-lucide-moon absolute scale-0 dark:scale-100 transition-transform duration-500 rotate-90 dark:rotate-0" />
       <span className="sr-only">Toggle theme</span>
     </button>
-  )
+  );
 }
 ```
 
@@ -80,7 +80,7 @@ export function AppearanceSwitch({ className = "" }: { className?: string }) {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html suppressHydrationWarning>
@@ -96,7 +96,7 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  )
+  );
 }
 ```
 
@@ -108,46 +108,46 @@ export default function RootLayout({
     var e =
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches,
-      t = localStorage.getItem("use-dark") || '"system"'
-    ;('"dark"' === t || (e && '"light"' !== t)) &&
-      document.documentElement.classList.toggle("dark", !0)
-  })()
+      t = localStorage.getItem("use-dark") || '"system"';
+    ('"dark"' === t || (e && '"light"' !== t)) &&
+      document.documentElement.classList.toggle("dark", !0);
+  })();
 </script>
 ```
 
 ## React Only version
 
 ```ts
-import { useLocalStorage } from "foxact/use-local-storage"
-import { useEffect, useMemo, useSyncExternalStore } from "react"
+import { useLocalStorage } from "foxact/use-local-storage";
+import { useEffect, useMemo, useSyncExternalStore } from "react";
 
-const query = "(prefers-color-scheme: dark)"
+const query = "(prefers-color-scheme: dark)";
 
 function getSnapshot() {
-  return window.matchMedia(query).matches
+  return window.matchMedia(query).matches;
 }
 
 function getServerSnapshot(): undefined {
-  return undefined
+  return undefined;
 }
 
 function subscribe(callback: () => void) {
-  const matcher = window.matchMedia(query)
-  matcher.addEventListener("change", callback)
+  const matcher = window.matchMedia(query);
+  matcher.addEventListener("change", callback);
   return () => {
-    matcher.removeEventListener("change", callback)
-  }
+    matcher.removeEventListener("change", callback);
+  };
 }
 
 function useSystemDark() {
-  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
 
 /**
  * credit: https://github.com/pacocoursey/next-themes/blob/cd67bfa20ef6ea78a814d65625c530baae4075ef/packages/next-themes/src/index.tsx#L285
  */
 function disableAnimation(disableTransitionExclude: string[] = []) {
-  const css = document.createElement("style")
+  const css = document.createElement("style");
   css.append(
     document.createTextNode(
       `
@@ -160,48 +160,48 @@ function disableAnimation(disableTransitionExclude: string[] = []) {
 }
       `,
     ),
-  )
-  document.head.append(css)
+  );
+  document.head.append(css);
 
   return () => {
     // Force restyle
-    ;(() => window.getComputedStyle(document.body))()
+    (() => window.getComputedStyle(document.body))();
 
     // Wait for next tick before removing
     setTimeout(() => {
-      css.remove()
-    }, 1)
-  }
+      css.remove();
+    }, 1);
+  };
 }
 
-const themeOptions = ["system", "light", "dark"] as const
-type Theme = (typeof themeOptions)[number]
+const themeOptions = ["system", "light", "dark"] as const;
+type Theme = (typeof themeOptions)[number];
 
 function isDarkMode(setting?: Theme | null, isSystemDark?: boolean | null) {
-  return setting === "dark" || (!!isSystemDark && setting !== "light")
+  return setting === "dark" || (!!isSystemDark && setting !== "light");
 }
 
 export type Options = {
   /**
    * @default "use-dark"
    */
-  storageKey?: string
+  storageKey?: string;
 
   /**
    * @default false
    */
-  disableTransition?: boolean
+  disableTransition?: boolean;
 
   /**
    * @default []
    */
-  disableTransitionExclude?: string[]
+  disableTransitionExclude?: string[];
 
   /**
    * @default isDark => document.documentElement.classList.toggle("dark", isDark)
    */
-  applyDarkMode?: (isDark: boolean) => void
-}
+  applyDarkMode?: (isDark: boolean) => void;
+};
 
 export function useDark(options?: Options) {
   const {
@@ -209,41 +209,41 @@ export function useDark(options?: Options) {
     disableTransition = false,
     disableTransitionExclude = [],
     applyDarkMode = (isDark: boolean) => {
-      document.documentElement.classList.toggle("dark", isDark)
+      document.documentElement.classList.toggle("dark", isDark);
     },
-  } = options ?? {}
+  } = options ?? {};
 
-  const [theme, setTheme] = useLocalStorage<Theme>(storageKey, "system")
-  const isSystemDark = useSystemDark()
+  const [theme, setTheme] = useLocalStorage<Theme>(storageKey, "system");
+  const isSystemDark = useSystemDark();
 
   const isDark = useMemo(
     () => isDarkMode(theme, isSystemDark),
     [isSystemDark, theme],
-  )
+  );
 
   const toggleDark = () => {
     const enable = disableTransition
       ? disableAnimation(disableTransitionExclude)
-      : null
+      : null;
 
-    if (theme === "system") setTheme(isSystemDark ? "light" : "dark")
-    else setTheme("system")
+    if (theme === "system") setTheme(isSystemDark ? "light" : "dark");
+    else setTheme("system");
 
-    enable?.()
-  }
+    enable?.();
+  };
 
   useEffect(() => {
-    const isDark = isDarkMode(theme, isSystemDark)
-    applyDarkMode(isDark)
+    const isDark = isDarkMode(theme, isSystemDark);
+    applyDarkMode(isDark);
 
     if (
       (theme === "dark" && isSystemDark) ||
       (theme === "light" && !isSystemDark)
     )
-      setTheme("system")
-  }, [theme, isSystemDark, setTheme])
+      setTheme("system");
+  }, [theme, isSystemDark, setTheme]);
 
-  return { isDark, toggleDark }
+  return { isDark, toggleDark };
 }
 ```
 
