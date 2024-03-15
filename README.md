@@ -5,7 +5,6 @@
 [![bundle][bundle-src]][bundle-href]
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
-[![code style: prettier][code-style-src]][code-style-href]
 
 A Jōtai utility package for toggling dark mode
 
@@ -65,10 +64,23 @@ export function AppearanceSwitch({ className = "" }: { className?: string }) {
   const { toggleDark } = useDark();
 
   return (
-    <button type="button" onClick={toggleDark} className={"flex " + className}>
-      <div className="i-lucide-sun scale-100 dark:scale-0 transition-transform duration-500 rotate-0 dark:-rotate-90" />
-      <div className="i-lucide-moon absolute scale-0 dark:scale-100 transition-transform duration-500 rotate-90 dark:rotate-0" />
-      <span className="sr-only">Toggle theme</span>
+    <button
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      type="button"
+      onClick={toggleDark}
+      className={`flex ${className}`}
+    >
+      <div
+        role="img"
+        aria-hidden="true"
+        className="i-lucide-sun scale-100 dark:scale-0 transition-transform duration-500 rotate-0 dark:-rotate-90"
+      />
+      <div
+        role="img"
+        aria-hidden="true"
+        className="i-lucide-moon absolute scale-0 dark:scale-100 transition-transform duration-500 rotate-90 dark:rotate-0"
+      />
     </button>
   );
 }
@@ -121,14 +133,8 @@ export default function RootLayout({
 - [jotai-effect](https://github.com/jotaijs/jotai-effect)
 - [next-themes](https://github.com/pacocoursey/next-themes)
 
-## License
-
-[MIT](./LICENSE) License © 2023-PRESENT [Stephen Zhou](https://github.com/hyoban)
-
 <!-- Badges -->
 
-[code-style-src]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat
-[code-style-href]: https://github.com/prettier/prettier
 [npm-version-src]: https://img.shields.io/npm/v/jotai-dark?style=flat&colorA=080f12&colorB=1fa669
 [npm-version-href]: https://npmjs.com/package/jotai-dark
 [npm-downloads-src]: https://img.shields.io/npm/dm/jotai-dark?style=flat&colorA=080f12&colorB=1fa669
