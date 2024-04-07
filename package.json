@@ -50,11 +50,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch src",
-    "knip": "knip",
     "lint": "eslint",
-    "prepare": "simple-git-hooks",
     "prepublishOnly": "pnpm run build",
-    "publint": "publint",
     "start": "tsx src/index.ts",
     "test": "playwright test -c playwright-ct.config.ts",
     "typecheck": "tsc --noEmit"
@@ -89,22 +86,10 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "foxact": "^0.2.33",
     "jotai": "^2.7.2",
-    "knip": "^5.8.0",
-    "lint-staged": "^15.2.2",
-    "publint": "^0.2.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "release-it": "^17.1.1",
-    "release-it-pnpm": "4.0.0-beta.1",
-    "simple-git-hooks": "^2.11.1",
     "tsup": "^8.0.2",
     "tsx": "^4.7.2",
     "typescript": "^5.4.4"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
-  },
-  "lint-staged": {
-    "*": "eslint --fix"
   }
 }
