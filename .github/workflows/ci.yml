@@ -38,6 +38,9 @@ jobs:
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: pnpm install -g publint @arethetypeswrong/cli knip
 
+      - name: Build
+        run: pnpm run build
+
       - name: Lint
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: pnpm run lint
@@ -45,9 +48,6 @@ jobs:
       - name: Type check
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: pnpm run typecheck
-
-      - name: Build
-        run: pnpm run build
 
       - name: Install Playwright
         run: pnpm exec playwright install
