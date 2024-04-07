@@ -50,7 +50,7 @@ jobs:
         run: pnpm run typecheck
 
       - name: Install Playwright
-        run: pnpm exec playwright install
+        run: pnpm exec playwright install --with-deps
 
       - name: Test
         run: pnpm run test
