@@ -38,26 +38,26 @@ export function disableAnimation(disableTransitionExclude: string[] = []) {
   }
 }
 
-export type Options = {
+export interface Options {
   /**
    * @default "use-dark"
    */
-  storageKey?: string
+  storageKey?: string,
 
   /**
    * @default false
    */
-  disableTransition?: boolean
+  disableTransition?: boolean,
 
   /**
    * @default []
    */
-  disableTransitionExclude?: string[]
+  disableTransitionExclude?: string[],
 
   /**
    * @default isDark => document.documentElement.classList.toggle("dark", isDark)
    */
-  applyDarkMode?: (isDark: boolean) => void
+  applyDarkMode?: (isDark: boolean) => void,
 }
 
 export function mergeDefaultOptions(options?: Options): Required<Options> {
