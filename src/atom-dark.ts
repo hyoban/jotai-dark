@@ -28,7 +28,11 @@ export function atomDark(options?: Options) {
     const theme = get(themeAtom)
     const isSystemDark = get(isSystemDarkAtom)
     const isDark = isDarkMode(theme, isSystemDark)
+    const enable = disableTransition
+      ? disableAnimation(disableTransitionExclude)
+      : null
     applyDarkMode(isDark)
+    enable?.()
 
     if (
       (theme === 'dark' && isSystemDark)
@@ -47,17 +51,12 @@ export function atomDark(options?: Options) {
       return isDarkMode(theme, isSystemDark)
     },
     (get, set) => {
-      const enable = disableTransition
-        ? disableAnimation(disableTransitionExclude)
-        : null
       const theme = get(themeAtom)
       const isSystemDark = get(isSystemDarkAtom)
       if (theme === 'system')
         set(themeAtom, isSystemDark ? 'light' : 'dark')
       else
         set(themeAtom, 'system')
-
-      enable?.()
     },
   )
   return anAtom
