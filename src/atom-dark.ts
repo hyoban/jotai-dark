@@ -4,17 +4,15 @@ import { atomEffect } from 'jotai-effect'
 
 import { atomSystemDark } from './atom-system-dark'
 import type { Options, Theme } from './utils'
-import { disableAnimation, isDarkMode } from './utils'
+import { disableAnimation, isDarkMode, mergeDefaultOptions } from './utils'
 
 export function atomDark(options?: Options) {
   const {
-    storageKey = 'use-dark',
-    disableTransition = false,
-    disableTransitionExclude = [],
-    applyDarkMode = (isDark: boolean) => {
-      document.documentElement.classList.toggle('dark', isDark)
-    },
-  } = options ?? {}
+    storageKey,
+    disableTransition,
+    disableTransitionExclude,
+    applyDarkMode,
+  } = mergeDefaultOptions(options)
 
   const isSystemDarkAtom = atomSystemDark()
   if (import.meta.env?.MODE !== 'production')
@@ -37,8 +35,9 @@ export function atomDark(options?: Options) {
     if (
       (theme === 'dark' && isSystemDark)
       || (theme === 'light' && !isSystemDark)
-    )
+    ) {
       set(themeAtom, 'system')
+    }
   })
   if (import.meta.env?.MODE !== 'production')
     toggleDarkEffect.debugPrivate = true

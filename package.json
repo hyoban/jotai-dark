@@ -7,7 +7,10 @@
   "author": "Stephen Zhou <hi@hyoban.cc>",
   "license": "MIT",
   "homepage": "https://github.com/hyoban/jotai-dark#readme",
-  "repository": "hyoban/jotai-dark",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyoban/jotai-dark"
+  },
   "bugs": "https://github.com/hyoban/jotai-dark/issues",
   "keywords": [],
   "sideEffects": false,
@@ -82,7 +85,7 @@
     "@types/node": "^20.12.5",
     "@types/react": "^18.2.74",
     "eslint": "^9.0.0",
-    "eslint-config-hyoban": "^0.4.0",
+    "eslint-config-hyoban": "3.0.0-beta.16",
     "eslint-plugin-react-hooks": "^4.6.0",
     "foxact": "^0.2.33",
     "jotai": "^2.7.2",

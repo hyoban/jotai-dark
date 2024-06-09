@@ -42,22 +42,28 @@ export interface Options {
   /**
    * @default "use-dark"
    */
-  storageKey?: string,
+  storageKey?: string
 
   /**
    * @default false
    */
-  disableTransition?: boolean,
+  disableTransition?: boolean
 
   /**
    * @default []
    */
-  disableTransitionExclude?: string[],
+  disableTransitionExclude?: string[]
 
   /**
-   * @default isDark => document.documentElement.classList.toggle("dark", isDark)
+   * @default "class"
    */
-  applyDarkMode?: (isDark: boolean) => void,
+  mode?: 'class' | 'data-theme'
+
+  /**
+   * @default `isDark => document.documentElement.classList.toggle("dark", isDark)` for mode "class"
+   * @default `isDark => document.documentElement.dataset.theme = isDark ? "dark" : "light"` for mode "data-theme"
+   */
+  applyDarkMode?: (isDark: boolean) => void
 }
 
 export function mergeDefaultOptions(options?: Options): Required<Options> {
@@ -65,9 +71,14 @@ export function mergeDefaultOptions(options?: Options): Required<Options> {
     storageKey: 'use-dark',
     disableTransition: false,
     disableTransitionExclude: [],
-    applyDarkMode: (isDark) => {
-      document.documentElement.classList.toggle('dark', isDark)
-    },
+    mode: 'class',
+    applyDarkMode: options?.mode === 'data-theme'
+      ? (isDark) => {
+          document.documentElement.dataset.theme = isDark ? 'dark' : 'light'
+        }
+      : (isDark) => {
+          document.documentElement.classList.toggle('dark', isDark)
+        },
     ...options,
   }
 }

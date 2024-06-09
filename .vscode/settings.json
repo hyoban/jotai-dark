@@ -1,38 +1,19 @@
 {
-  "prettier.enable": false,
-  "editor.formatOnSave": false,
-  "eslint.experimental.useFlatConfig": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "mdx",
-    "html",
-    "markdown",
-    "json",
-    "jsonc",
-    "yaml",
-    "github-actions-workflow",
-    "css"
-  ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
   },
+
+  // If you do not want to auto fix some rules on save
+  // You can put this in your user settings or workspace settings
   "eslint.codeActionsOnSave.rules": [
+    "!no-var",
+    "!prefer-const",
     "!unused-imports/no-unused-imports",
+    "!@stylistic/jsx-self-closing-comp",
+    "!tailwindcss/classnames-order",
     "*"
-  ],
-  "eslint.rules.customizations": [
-    { "rule": "@stylistic/*", "severity": "off" },
-    { "rule": "@stylistic/max-statements-per-line", "severity": "default" },
-    { "rule": "simple-import-sort/*", "severity": "off" },
-    { "rule": "import/first", "severity": "off" },
-    { "rule": "import/newline-after-import", "severity": "off" },
-    { "rule": "import/no-duplicates", "severity": "off" },
-    { "rule": "antfu/import-dedupe", "severity": "off" },
-    { "rule": "format/prettier", "severity": "off" },
-    { "rule": "jsonc/indent", "severity": "off" },
-    { "rule": "hyoban/no-extra-space-jsx-expression", "severity": "off" },
-  ],
+  ]
 }

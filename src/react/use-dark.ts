@@ -22,27 +22,26 @@ export function useDark(options?: Options) {
   )
 
   const toggleDark = () => {
-    const enable = disableTransition
-      ? disableAnimation(disableTransitionExclude)
-      : null
-
     if (theme === 'system')
       setTheme(isSystemDark ? 'light' : 'dark')
     else setTheme('system')
-
-    enable?.()
   }
 
   useEffect(() => {
     const isDark = isDarkMode(theme, isSystemDark)
+    const enable = disableTransition
+      ? disableAnimation(disableTransitionExclude)
+      : null
     applyDarkMode(isDark)
+    enable?.()
 
     if (
       (theme === 'dark' && isSystemDark)
       || (theme === 'light' && !isSystemDark)
-    )
+    ) {
       setTheme('system')
-  }, [theme, isSystemDark, setTheme, applyDarkMode])
+    }
+  }, [theme, isSystemDark, setTheme, applyDarkMode, disableTransition, disableTransitionExclude])
 
   return { isDark, toggleDark }
 }
