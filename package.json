@@ -60,15 +60,11 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "foxact": "^0.2.33",
     "jotai": ">=2.5.0",
     "jotai-effect": "*",
-    "react": "^18.2.0"
+    "react": ">=18.2.0"
   },
   "peerDependenciesMeta": {
-    "foxact": {
-      "optional": true
-    },
     "jotai": {
       "optional": true
     },
