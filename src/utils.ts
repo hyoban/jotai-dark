@@ -55,12 +55,13 @@ export interface Options {
   disableTransitionExclude?: string[]
 
   /**
+   * The mode to apply dark mode, only works when `applyDarkMode` is not provided
    * @default "class"
    */
   mode?: 'class' | 'data-theme'
 
   /**
-   * @default `isDark => document.documentElement.classList.toggle("dark", isDark)` for mode "class"
+   * @default `isDark => document.documentElement.classList.toggle("dark", isDark); document.documentElement.classList.toggle("light", !isDark)` for mode "class"
    * @default `isDark => document.documentElement.dataset.theme = isDark ? "dark" : "light"` for mode "data-theme"
    */
   applyDarkMode?: (isDark: boolean) => void
@@ -78,6 +79,7 @@ export function mergeDefaultOptions(options?: Options): Required<Options> {
         }
       : (isDark) => {
           document.documentElement.classList.toggle('dark', isDark)
+          document.documentElement.classList.toggle('light', !isDark)
         },
     ...options,
   }
